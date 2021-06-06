@@ -6,4 +6,18 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libpng-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
+    && docker-php-ext-install -j$(nproc) gd \
+    && apt clean all
+
+RUN docker-php-ext-configure mysqli \
+        && docker-php-ext-install -j$(nproc) mysqli \
+        && apt clean all
+
+RUN apt install libzip-dev \
+        && docker-php-ext-configure zip \
+        && docker-php-ext-install -j$(nproc) zip \
+        && apt clean all
+
+RUN docker-php-ext-configure exif \
+        && docker-php-ext-install -j$(nproc) exif
+
