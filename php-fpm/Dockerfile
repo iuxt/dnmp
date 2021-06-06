@@ -23,3 +23,5 @@ RUN apt install libzip-dev -y \
 RUN docker-php-ext-configure exif \
         && docker-php-ext-install -j$(nproc) exif
 
+RUN docker-php-ext-configure opcache \
+        && docker-php-ext-install -j$(nproc) opcache
