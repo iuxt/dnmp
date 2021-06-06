@@ -41,5 +41,5 @@ docker-compose up -d
 ## 其他
 ### 创建数据库
 ```bash
-docker run --rm --network docker-nginx-php_default mysql:5.7.32 mysql -uroot -hmysql -p123456 -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
+docker run --rm --network dnmp_default mysql:5.7.32 mysql -uroot -hmysql -p123456 -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
 ```
