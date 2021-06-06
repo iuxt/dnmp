@@ -1,6 +1,8 @@
 FROM php:8.0-fpm
 ENV TZ='Asia/Shanghai'
 
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 RUN apt update && apt install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
