@@ -6,7 +6,7 @@
 
 1. 克隆仓库
 ```bash
-git clone https://github.com/iuxt/docker-nginx-php.git
+git clone https://github.com/iuxt/dnmp.git
 ```
 2. 复制配置文件模板
 ```bash
