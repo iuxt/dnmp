@@ -25,3 +25,13 @@ RUN docker-php-ext-configure exif \
 
 RUN docker-php-ext-configure opcache \
         && docker-php-ext-install -j$(nproc) opcache
+
+RUN docker-php-ext-configure bcmath; \
+    docker-php-ext-install -j$(nproc) bcmath
+ 
+RUN docker-php-ext-configure filter; \
+    docker-php-ext-install -j$(nproc) filter
+
+RUN apt install -y libmcrypt-dev; \
+    yes '' | pecl install mcrypt; \
+    docker-php-ext-enable mcrypt
