@@ -34,4 +34,5 @@ RUN docker-php-ext-configure filter; \
 
 RUN apt install -y libmcrypt-dev; \
     yes '' | pecl install mcrypt; \
-    docker-php-ext-enable mcrypt
+    docker-php-ext-enable mcrypt; \
+    rm -rf /tmp/pear/
