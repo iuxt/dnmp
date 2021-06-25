@@ -1,6 +1,7 @@
 ## 这个东西有什么用
 
 这个项目可以让你很快的搭建一套PHP环境,比如跑个wordpress等
+想重新编译的话,请删除docker-compose.yml,并且复制docker-compose-build.yml到docker-compose.yml
 
 ## 使用前准备
 
@@ -19,7 +20,7 @@ mkdir www mysql_data
 ```
 4. 把你的代码放到www目录下, 然后修改目录权限
 ```bash
-sudo chown -R www-data:www-data www
+sudo chown -R 33:33 www
 ```
 5. 安装docker-compose
 ```bash
