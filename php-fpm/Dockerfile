@@ -26,11 +26,15 @@ RUN docker-php-ext-configure opcache; \
 
 RUN docker-php-ext-configure bcmath; \
     docker-php-ext-install -j$(nproc) bcmath
- 
+
 RUN docker-php-ext-configure filter; \
     docker-php-ext-install -j$(nproc) filter
 
 RUN apt install -y libmcrypt-dev; \
     yes '' | pecl install mcrypt; \
     docker-php-ext-enable mcrypt; \
-    rm -rf /tmp/pear/
+    apt install -y libmagickcore-dev libmagickwand-dev; \
+    yes '' | pecl install imagick; \
+    docker-php-ext-enable imagick; \
+    rm -rf /tmp/pear/; \
+    apt clean all
