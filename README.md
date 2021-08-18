@@ -23,9 +23,14 @@ mkdir www mysql_data
 sudo chown -R 33:33 www
 ```
 5. 安装docker-compose
+5.1 amd64
 ```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+```
+5.2 arm
+```bash
+pip3 install docker-compose
 ```
 
 6. 安装docker
@@ -43,4 +48,8 @@ docker-compose up -d
 ### 创建数据库
 ```bash
 docker run --rm --network dnmp_default mysql:5.7.32 mysql -uroot -hmysql -p123456 -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
+```
+### 将mysql连接到dnmp
+```bash
+docker network connect dnmp_default mysql
 ```
