@@ -14,10 +14,6 @@ git clone https://github.com/iuxt/dnmp.git
 cp .env.example .env
 ```
 
-3. 创建必须的目录
-```bash
-mkdir www mysql_data
-```
 4. 把你的代码放到www目录下, 然后修改目录权限
 ```bash
 sudo chown -R 33:33 www
@@ -45,10 +41,12 @@ docker-compose up -d
 ```
 
 ## 其他
+
 ### 创建数据库
 ```bash
-docker run --rm --network dnmp_default mysql:5.7.32 mysql -uroot -hmysql -p123456 -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
+docker run --rm --network dnmp_default mysql:5.7.32 mysql -uroot -hmysql -p123456 -e 'CREATE DATABASE `wordpress2` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
 ```
+
 ### 将mysql连接到dnmp
 ```bash
 docker network connect dnmp_default mysql
