@@ -14,8 +14,8 @@ services:
       - default
 
   php:
-    image: iuxt/dnmp_php-fpm
-    container_name: php-fpm
+    image: "iuxt/dnmp_php-fpm:${PHP_VERSION}"
+    container_name: "php-fpm_${PHP_VERSION}"
     expose:
       - 9000
     volumes:
