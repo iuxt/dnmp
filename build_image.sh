@@ -13,7 +13,7 @@ else
     cd ..
 fi
 
-if [ $(docker images | grep -c dnmp_php-fpm) -ge 1 ]
+if [ $(docker images | grep dnmp_php-fpm | grep -c ${PHP_VERSION}) -ge 1 ]
 then
     echo "dnmp_php-fpm image exist, please delete it"
 else
