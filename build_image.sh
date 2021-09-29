@@ -1,12 +1,23 @@
 #!/bin/bash
 set -euf -o pipefail
 
+arch=$(uname -i)
 source .env
 
-cd nginx
-docker build . -t iuxt/dnmp_nginx
-cd ..
+if [ $(docker images | grep -c dnmp_nginx) -ge 1 ]
+then
+    echo "dnmp_nginx image exist, please delete it"
+else
+    cd nginx
+    docker build . -t iuxt/dnmp_nginx:${arch}
+    cd ..
+fi
 
-cd php-fpm_${PHP_VERSION}
-docker build . -t iuxt/dnmp_php-fpm:${PHP_VERSION}
-cd ..
+if [ $(docker images | grep -c dnmp_php-fpm) -ge 1 ]
+then
+    echo "dnmp_php-fpm image exist, please delete it"
+else
+    cd php-fpm_${PHP_VERSION}
+    docker build . -t iuxt/dnmp_php-fpm:${arch}-${PHP_VERSION}
+    cd ..
+fi
