@@ -3,6 +3,7 @@ services:
   nginx:
     build:
       context: ./service/nginx
+    image: iuxt/dnmp_nginx
     container_name: nginx
     ports:
       - ${NGINX_HTTP_HOST_PORT}:80
@@ -20,13 +21,12 @@ services:
   php:
     build:
       context: ./service/php-fpm_${PHP_VERSION}
+    image: iuxt/dnmp_php-fpm:${PHP_VERSION}
     container_name: "php-fpm"
     expose:
       - 9000
     volumes:
       - ${SOURCE_DIR}:/usr/share/nginx/html/:rw
-      - ${PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-      - ${PHP_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
     environment:
       TZ: "${TZ}"
     restart: always
