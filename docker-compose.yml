@@ -10,7 +10,8 @@ services:
       - ${NGINX_HTTPS_HOST_PORT}:443
     volumes:
       - ${SOURCE_DIR}:/usr/share/nginx/html/:ro
-      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:rw
+      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d/:ro
+      - ${NGINX_SSL_DIR}:/etc/nginx/ssl/:ro
       - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
     environment:
       TZ: "${TZ}"
