@@ -65,8 +65,8 @@ docker network connect dnmp_default mysql
 ./service/nginx/ssl/gencert.sh
 ```
 
-> 这个脚本会生成一堆文件，其中：
-> ca.crt      是CA证书，需要在客户端信任
-> ca.key      是CA私钥
-> server.key  服务器私钥，配置在nginx上面
-> server.crt  服务器证书，配置在nginx上面
+> 这个脚本会生成一堆文件，其中：  
+> ca.crt      是CA证书，需要在客户端信任  
+> ca.key      是CA私钥  
+> server.key  服务器私钥，配置在nginx上面  
+> server.crt  服务器证书，配置在nginx上面  
