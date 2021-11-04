@@ -1,7 +1,8 @@
+# 使用说明
+
 ## 这个东西有什么用
 
 这个项目可以让你很快的搭建一套PHP环境,比如跑个wordpress等
-想重新编译的话,请删除docker-compose.yml,并且复制docker-compose-build.yml到docker-compose.yml
 
 ## 使用前准备
 
@@ -57,3 +58,15 @@ docker run --rm --network dnmp_default mysql:5.7.32 mysql -uroot -hmysql -p12345
 ```bash
 docker network connect dnmp_default mysql
 ```
+
+### 自签证书
+
+```bash
+./service/nginx/ssl/gencert.sh
+```
+
+> 这个脚本会生成一堆文件，其中：
+> ca.crt      是CA证书，需要在客户端信任
+> ca.key      是CA私钥
+> server.key  服务器私钥，配置在nginx上面
+> server.crt  服务器证书，配置在nginx上面
