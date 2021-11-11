@@ -28,6 +28,9 @@ services:
       - 9000
     volumes:
       - ${SOURCE_DIR}:/usr/share/nginx/html/:rw
+      - type: bind
+        source: ./service/php-fpm_${PHP_VERSION}/custom.ini
+        target: "/usr/local/etc/php/conf.d/custom.ini"
     environment:
       TZ: "${TZ}"
     restart: always
