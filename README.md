@@ -47,16 +47,11 @@
 
 ## 其他
 
-### 创建数据库
+### 执行SQL
 
 ```bash
-docker run --rm --network dnmp_default mysql:5.7.32 mysql -uroot -hmysql -p123456 -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
-```
-
-### 将mysql连接到dnmp
-
-```bash
-docker network connect dnmp_default mysql
+source .env
+docker run --rm --network dnmp_default mysql:${MYSQL_VERSION} mysql -uroot -hmysql -p${MYSQL_ROOT_PASSWORD}  -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
 ```
 
 ### 自签证书
