@@ -45,6 +45,11 @@
     docker-compose up -d
     ```
 
+1. 访问
+
+    绑定hosts 127.0.0.1 到 test.com
+    浏览器访问test.com不出意外，你就可以看到phpinfo页面。
+
 ## 其他
 
 ### 执行SQL
