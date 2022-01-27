@@ -54,6 +54,17 @@ source .env
 docker run --rm --network dnmp_default mysql:${MYSQL_VERSION} mysql -uroot -hmysql -p${MYSQL_ROOT_PASSWORD}  -e 'CREATE DATABASE `wordpress` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';'
 ```
 
+### arm架构机器
+
+mysql官方镜像没有支持ARM架构，可以将镜像换成mysql/mysql-server
+
+docker-compose.yaml
+
+```yaml
+  mysql:
+    image: mysql/mysql-server:${MYSQL_VERSION}
+```
+
 ### 自签证书
 
 建议直接使用mkcert<https://github.com/FiloSottile/mkcert>
