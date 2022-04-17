@@ -61,9 +61,9 @@ docker run --rm --network dnmp_default mysql:${MYSQL_VERSION} mysql -uroot -hmys
 
 ### arm架构机器
 
-mysql官方镜像没有支持ARM架构，可以将镜像换成mysql/mysql-server
+~~mysql官方镜像没有支持ARM架构，可以将镜像换成mysql/mysql-server~~mysql最新版已经有支持arm的镜像了
 
-docker-compose.yaml
+~~docker-compose.yaml~~
 
 ```yaml
   mysql:
